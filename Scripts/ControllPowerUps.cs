@@ -12,6 +12,7 @@ public class ControllPowerUps : MonoBehaviour
     public bool shooting;
     public bool powerUp1;
     public AudioClip fire;
+    public AudioClip powerUp;
     public bool canFire;
     public float timeInterval = 30;
     public float timeBetweenBullets = 0.5f;
@@ -42,6 +43,7 @@ public class ControllPowerUps : MonoBehaviour
 
     IEnumerator ExampleCoroutine2()
     {
+        AudioSource.PlayClipAtPoint(powerUp, transform.position);
         yield return new WaitForSeconds(30);
         powerUp1 = false;
     }

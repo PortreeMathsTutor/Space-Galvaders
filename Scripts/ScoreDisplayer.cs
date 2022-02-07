@@ -22,7 +22,7 @@ public class ScoreDisplayer : MonoBehaviour
     {
         youAreDeadScreReset = Kill.youAreDeadScoreReset;
         if (youAreDeadScreReset) { score = 0; }
-        score = Kill.score+KillEnemies.score;
+        score = KillEnemies.score;
 
 
         if (score < 0) { score = 0; }

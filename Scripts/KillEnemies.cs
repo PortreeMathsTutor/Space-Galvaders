@@ -11,7 +11,7 @@ public class KillEnemies : MonoBehaviour
 
     private void Start()
     {
-        score = 0;
+      
     }
 
   
@@ -19,6 +19,19 @@ public class KillEnemies : MonoBehaviour
     // Use this for initialization
     void OnTriggerEnter2D(Collider2D col)
     {
+
+        if (col.gameObject.tag == "EnemyProjectile")
+        {
+            AudioSource.PlayClipAtPoint(death, transform.position);
+            score = score + 10;
+
+            Debug.Log(score);
+            if (col.gameObject != null)
+            {
+                Destroy(col.gameObject);
+
+            }
+        }
 
         if (col.gameObject.tag == "Enemy")
         {

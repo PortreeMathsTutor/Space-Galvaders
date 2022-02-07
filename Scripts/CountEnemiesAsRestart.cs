@@ -19,8 +19,5 @@ public class CountEnemiesAsRestart : MonoBehaviour
         gos = GameObject.FindGameObjectsWithTag("Enemy");
         if (gos.Length < 1) { SceneManager.LoadScene(scene + 1); }
 
-        GameObject[] gos2;
-        gos2 = GameObject.FindGameObjectsWithTag("Player");
-        if (gos2.Length < 1) { SceneManager.LoadScene(scene+4); }
     }
 }
