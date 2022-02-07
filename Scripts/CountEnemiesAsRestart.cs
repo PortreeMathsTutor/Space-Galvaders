@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class CountEnemiesAsRestart : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private int scene;
     void Start()
     {
-        
+      scene = SceneManager.GetActiveScene().buildIndex;
+       
     }
 
     // Update is called once per frame
@@ -16,6 +17,10 @@ public class CountEnemiesAsRestart : MonoBehaviour
     {
         GameObject[] gos;
         gos = GameObject.FindGameObjectsWithTag("Enemy");
-        if (gos.Length < 1) { SceneManager.LoadScene(2); }
+        if (gos.Length < 1) { SceneManager.LoadScene(scene + 1); }
+
+        GameObject[] gos2;
+        gos2 = GameObject.FindGameObjectsWithTag("Player");
+        if (gos2.Length < 1) { SceneManager.LoadScene(scene+4); }
     }
 }

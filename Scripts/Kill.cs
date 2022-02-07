@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Kill : MonoBehaviour
 {
+    public static bool youAreDeadScoreReset = false;
     public AudioClip death;
     public AudioClip deathPlayer;
     public static int score = 0;
+    private int scene;
+    void Start()
+    {
+        youAreDeadScoreReset = false;
+     
+        score = 0;
+    }
+
 
     IEnumerator ExampleCoroutine()
     {
@@ -22,7 +31,7 @@ public class Kill : MonoBehaviour
 
         if (gameObject != null)
         {
-          
+        
             Destroy(gameObject);
        
         }
@@ -31,13 +40,13 @@ public class Kill : MonoBehaviour
     {
 
         AudioSource.PlayClipAtPoint(deathPlayer, transform.position);
-
+   
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(0.5f);
 
         //After we have waited 5 seconds print the time again.
-
-        SceneManager.LoadScene(3);
+        youAreDeadScoreReset = true;
+        SceneManager.LoadScene(scene+4);
   
     }
     // Use this for initialization
@@ -48,7 +57,7 @@ public class Kill : MonoBehaviour
       {
             StartCoroutine(ExampleCoroutine());
 
-            Debug.Log(score);
+     
             if (col.gameObject != null)
             {
                 Destroy(col.gameObject);
@@ -74,5 +83,8 @@ public class Kill : MonoBehaviour
             }
         }
     }
-
+    private void Update()
+    {
+        scene = SceneManager.GetActiveScene().buildIndex;
+    }
 }

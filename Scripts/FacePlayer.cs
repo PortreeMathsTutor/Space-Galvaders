@@ -5,7 +5,7 @@ using UnityEngine;
 public class FacePlayer : MonoBehaviour
 {
     private GameObject player;
-    private float speed = 2f;
+
 
     // Start is called before the first frame update
     void Start()

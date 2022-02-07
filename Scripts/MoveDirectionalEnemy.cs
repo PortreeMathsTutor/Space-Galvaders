@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoveDirectionalEnemy : MonoBehaviour
 {
+    public float speedOfFGame;
     private GameObject player;
     private float speed = 0.5f;
     private Vector3 startPosition;
@@ -19,6 +20,7 @@ public class MoveDirectionalEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        speedOfFGame = MakeTheGameFaster.speedOfGame;
       
         if (transform.position.y <-15)
         {
@@ -30,7 +32,7 @@ public class MoveDirectionalEnemy : MonoBehaviour
         transform.position = transform.position + newPosition;
         if (player != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed*speedOfFGame * Time.deltaTime);
         }
     }
 }

@@ -5,7 +5,7 @@ using TMPro;
 
 public class ScoreDisplayer : MonoBehaviour
 {
-  
+    public bool youAreDeadScreReset = false;
     public int score;
     public int highScoreInt;
 
@@ -20,8 +20,9 @@ public class ScoreDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
-        score = Kill.score;
+        youAreDeadScreReset = Kill.youAreDeadScoreReset;
+        if (youAreDeadScreReset) { score = 0; }
+        score = Kill.score+KillEnemies.score;
 
 
         if (score < 0) { score = 0; }

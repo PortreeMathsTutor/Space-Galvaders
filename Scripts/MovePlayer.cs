@@ -30,12 +30,12 @@ public class MovePlayer : MonoBehaviour
         if (transform.position.x > 10)
         {
           
-            transform.position =new Vector2(6, -12);
+            transform.position =new Vector2(10, -11);
         }
         if (transform.position.x < -10)
         {
         
-            transform.position =  new Vector2(-6,-12);
+            transform.position =  new Vector2(-10,-11);
         }
         horizontal = Input.GetAxis("Horizontal");
 

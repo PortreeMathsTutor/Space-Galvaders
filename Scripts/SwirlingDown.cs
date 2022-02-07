@@ -25,7 +25,7 @@ public class SwirlingDown : MonoBehaviour
             Destroy(gameObject);
         }
 
-      Vector3 newPosition = new Vector3(Mathf.Sin(timer_) * 50f, Mathf.Cos(timer_) * 50f - 20f, 0);
+      Vector3 newPosition = new Vector3(Mathf.Sin(timer_) * 50f, Mathf.Cos(timer_) * 50f - 35f, 0);
         transform.position = Vector2.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
       
         if (player != null)
